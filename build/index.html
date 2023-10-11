@@ -11,60 +11,51 @@
     <body class="bg-neutral">
      <!-- nav bar -->
       <nav>
-        <div class="">
-          <div class="flex justify-between h-40 px-10 shadow items-center bg-fuchsia">
+          <div class="flex justify-between h-40 px-0 shadow items-center bg-fuchsia">
             
             <div class="flex items-center space-x-8">
-              <h1 class="text-xl lg:text-2xl font-bold cursor-pointer">Night-In Line-Up</h1>
-
-            <!-- logo for navbar -->
-              <!-- <div>
+            <div>
                 <a
-                  class="flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-10 lg:mt-0"
+                  class="flex items-center"
                   href="#">
-                  <img
-                    src="./assets/images/main-logo.png"
-                    alt="NIL Logo"
-                  />
+                  <img src="./assets/img/small-logo.png"/>
                 </a>
-              </div> -->
-
-              <div class="hidden md:flex justify-around space-x-8">
-                <a href="#" class="hover:text-cyan text-neutral">Home</a>
-                <a href="#" class="hover:text-cyan text-neutral">About</a>
-                <a href="#" class="hover:text-cyan text-neutral">Line-Ups</a>
-                <a href="#" class="hover:text-cyan text-neutral">Contact</a>
               </div>
+
             </div>
 
-            <div class="flex space-x-4 items-center">
-              <a href="#" class="text-neutral text-sm">LOGIN</a>
-              <a href="#" class="bg-transparent px-4 py-2 rounded text-neutral hover:bg-yellow text-sm">SIGNUP</a>
+              <!-- <div class="hidden md:flex justify-around space-x-8">
+                <a href="#" class="hover:text-cyan text-neutral">CREATE LINEUP</a>
+                <a href="#" class="hover:text-cyan text-neutral">VIEW LINEUPS</a>
+              </div> -->
+           
+          
             </div>
-          </div>
-        </div>
       </nav>
 
       <!-- login card -->
       <div class="h-screen flex justify-center">
-        <div class="py-7 px-8 h-80 mt-80 bg-gray rounded shadow-xl">
+        <div class="py-7 px-8 h-80 mt-80 bg-fuchsia rounded shadow-xl sticky">
           <form action="">
             <div class="mb-6">
-              <label for="name" class="block text-cyan font-bold">Name:</label>
+              <label for="name" class="block text-neutral font-bold">Name:</label>
               <input type="text" name="name" id="name" placeholder="username" class="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
             </div>
     
             <div>
-              <label for="password" class="block text-cyan font-bold">Password:</label>
-              <input type="text" name="password" id="password" placeholder="password" class="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
+              <label for="password" class="block text-neutral font-bold">Password:</label>
+              <input type="text" name="password" id="password" placeholder="password" class="w-full border border-black-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
 
-              <a href="#" class="text-sm font-thin text-gray hover:underline mt-2 inline-block hover:text-yellow">Forgot Password?</a>
+              <a href="#" class="text-sm font-thin text-gray hover:underline mt-2 inline-block hover:text-cyan">Forgot Password?</a>
             </div>
 
             <butt class="cursor-pointer py-2 px-4 block mt-6 bg-lime text-gray font-bold w-full text-center rounded">Login</butt>
           </form>
         </div>
       </div>
+
+
+
 
       <!-- <section class="container forms">
             <div class="forms">
