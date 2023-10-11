@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     './build/*.html',
-    './build/assets/scripts/*.js',
+    './build/assets/scripts/script.js',
 ],
   theme: {
     colors: {
