@@ -1,4 +1,189 @@
 <!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIGHT-IN LINE-UP</title>
+   <!-- tailwindcss link to output-->
+   <!-- all stylng applied within html, any overrides are listen within the input.css -->
+  <link rel="stylesheet" href="./assets/css/output.css">
+</head>
+
+                   
+<body class="bg-neutral">
+
+
+  <!-- nav bar with logo -->
+<header>
+  <nav>
+    <div class="flex justify-between h-20 px-10 shadow items-center bg-neutral">
+      <div class="flex items-center space-x-8">
+        <div>
+           <!-- logo - hyperlinked back to index (home) -->
+          <a class="flex h-80 mt-20" href="index.html">
+            <img src="./assets/img/main-logo.png"/>
+          </a>
+        </div>
+      </div>
+              <!-- future use links -->
+           <!-- <div class="hidden md:flex justify-around space-x-8">
+                <a href="#" class="hover:text-yellow text-cyan">CREATE LINEUP</a>
+                <a href="#" class="hover:text-yellow text-cyan">VIEW LINEUPS</a>
+              </div> -->
+    </div>
+  </nav>
+</header>
+
+  <!-- login card -->
+<main>
+
+  <div class="flex h-screen align-middle justify-center">
+    <div class="py-7 px-8 h-80 bg-fuchsia rounded shadow-xl">
+
+          <form action="" id="">
+            <div class="mb-6">
+              <label for="name" class="block text-neutral font-bold">Name:</label>
+              <input type="text" name="name" id="users" placeholder="username" class="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
+            </div>
+    
+            <div>
+              <label for="password" class="block text-neutral font-bold">Password:</label>
+              <input type="text" name="password" id="password" placeholder="password" class="w-full border border-black-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
+            </div>
+            <button type="submit" class="cursor-pointer py-2 px-4 block mt-6 bg-lime text-gray font-bold w-full text-center rounded">Login</button>
+          </form>
+
+        </div>
+      </div>
+
+
+    <section class="container forms" id="sneaky">
+        <div class="forms">
+        <form id="signup-form">
+            <h2>Signup</h2>
+            <input type="text" class="signup-username" placeholder="Username" required>
+            <input type="password" class="signup-password" placeholder="Password" required>
+            <button type="submit" class="signup-button">Signup</button>
+        </form>
+        <form id="login-form">
+            <h2>Login</h2>
+            <input type="text" class="username" placeholder="Username" required>
+            <input type="password" class="password" placeholder="Password" required>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+    <p class="error-text"></p>
+     </section>
+
+  </main>
+
+
+
+
+<!-- page 2 section, redirect from page 1 signup/login -->
+<!-- <section class="get-started">
+  <button class="btn" id="getting-started">get started button</button>
+
+  <button class="btn" id="know-what-to-do">I know what to do button</button>
+
+  <p class="description-box">description box of what our app does??</p>
+</section> -->
+<!-- end page 2 section -->
+
+
+<!-- start page 4 night in "events/playlists" -->
+
+<section class="create-and-created" id="alsoSneaky">
+  <button class="btn" id="create-btn">create a night in</button>
+  <button class="btn" id="delete-night">delete nights?</button>
+  <h3 class="pick-one">pick one</h3>
+  <ul class="nights-in-list" id="target">
+
+ 
+  </ul>
+</section>
+<!-- end page 4 night in "event/playlists" -->
+
+<!-- page 5 create night in -->
+<section id="create-night-in">
+
+  <button id="nightSave">save</button>
+
+  <input id="night-title" type="text" placeholder="create a title"></input>
+
+  <ul class="api-data">
+
+    
+    <div id="map"></div>
+    <div>
+      <input id="address" type="text" placeholder="enter a location">
+      <input id="confirmButton" type="button" value="where are you">
+      <p id="restaurantLocal">
+      </p>
+      <input id="foodData" type="text" placeholder="write some restaurants here"> 
+      </div>
+      <div>
+      <input id="movieButton" type="button" value="click for some movies" >
+      <input id="movieData" type ="text" placeholder="write some movies here" >
+      <p id="movieList">
+        <!-- outputs go here -->
+                </p>
+      </div>  
+    
+    <!--for when we have a games api we can use  -->
+    <!-- <li>game data steam most popular if we have time</li> -->
+
+    
+  <button class="btn" id="pickone-return">All Done</button>
+
+
+</div>
+</section>
+
+
+    <!-- JavaScript -->
+
+  <script src="./assets/scripts/script.js"></script>
+
+  </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- working projects/future development -->
+
+
+
+<!--
     <html lang="en">
     <head>
       <meta charset="UTF-8">
@@ -8,30 +193,30 @@
       <link rel="stylesheet" href="./assets/css/output.css">
     </head>
 
-    <body class="bg-neutral">
+    <body class="bg-neutral"> -->
 
      <!-- nav bar with logo -->
-      <nav>
-          <div class="flex justify-between h-20 px-10 shadow items-center bg-neutral">
+      <!-- <nav>
+          <div class="flex justify-between h-20 px-10 shadow items-center bg-neutral"> -->
             <!-- logo -->
-            <div class="flex items-center space-x-8">
+            <!-- <div class="flex items-center space-x-8">
               <div>
                 <a class="flex h-80 mt-20"
                   href="#">
                 <img src="./assets/img/main-logo.png"/>
                 </a>
               </div>
-            </div>
+            </div> -->
               <!-- future use links -->
               <!-- <div class="hidden md:flex justify-around space-x-8">
                 <a href="#" class="hover:text-yellow text-cyan">CREATE LINEUP</a>
                 <a href="#" class="hover:text-yellow text-cyan">VIEW LINEUPS</a>
-              </div> --> 
-      </nav>
+              </div>
+      </nav> -->
 
 
       <!-- login card -->
-      <main>
+      <!-- <main>
       <div class="h-screen flex justify-center">
         <div class="py-7 px-8 h-80 mt-80 bg-fuchsia rounded shadow-xl">
 
@@ -45,7 +230,7 @@
               <label for="password" class="block text-neutral font-bold">Password:</label>
               <input type="text" name="password" id="password" placeholder="password" class="w-full border border-black-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
             </div>
-            <button id="submit" class="cursor-pointer py-2 px-4 block mt-6 bg-lime text-gray font-bold w-full text-center rounded">Login</button>
+            <button type="submit" class="cursor-pointer py-2 px-4 block mt-6 bg-lime text-gray font-bold w-full text-center rounded">Login</button>
           </form>
 
         </div>
@@ -53,7 +238,7 @@
 
       <div class="background-image"
         style="background-image: url('./assets/img/background.png'); height: 800px">
-      </div>
+      </div> -->
      
 
       <!-- <section id="LINE-UP" class="px-20 mt-20">
@@ -78,7 +263,7 @@
         </ul>
     </section> -->
 
-    <div
+    <!-- <div
     class="block rounded-lg bg-fuchsia">
     <a href="#!">
       <img
@@ -146,10 +331,8 @@
       Button
     </button>
   </div>
-</div>
+</div> -->
 
-
-</main>
 
       <!-- <main>
       <section id="rockets" class="px-20 mt-20">
@@ -218,8 +401,6 @@
       </div>
     </div> -->
 
-
-
       <!-- <div
       class="bg-cover bg-blend-multiply hover:bg-blend-darken"
       style="background-image: url('./assets/img/background.png'); height: 600px; width:auto">
@@ -244,107 +425,3 @@
         </div>
       </div> -->
 
-
-
-
-
-      <!-- original html -->
-
-
-      <!-- <section class="container forms">
-            <div class="forms">
-            <form id="signup-form">
-                <h2>Signup</h2>
-                <input type="text" class="signup-username" placeholder="Username" required>
-                <input type="password" class="signup-password" placeholder="Password" required>
-                <button type="submit" class="signup-button">Signup</button>
-            </form>
-            <form id="login-form">
-                <h2>Login</h2>
-                <input type="text" class="username" placeholder="Username" required>
-                <input type="password" class="password" placeholder="Password" required>
-                <button type="submit" class="login-button">Login</button>
-            </form>
-        </div>
-        <p class="error-text"></p>
-         </section> -->
-         
-    <!-- page 2 section, redirect from page 1 signup/login -->
-    <!-- <section class="get-started">
-      <button class="btn" id="getting-started">get started button</button>
-
-      <button class="btn" id="know-what-to-do">I know what to do button</button>
-
-      <p class="description-box">description box of what our app does??</p>
-    </section> -->
-    <!-- end page 2 section -->
-    
-
-    <!-- start page 4 night in "events/playlists" -->
-
-    <!-- <section class="create-and-created">
-      <button class="btn" id="create-btn">create a night in</button>
-      <h3 class="pick-one">pick one</h3>
-      <ul class="nights-in-list">
-       
-        <li></li>
-
-        <li></li>
-
-        <li></li>
-
-        <li></li>
-
-        <li></li>
-      </ul>
-    </section> -->
-    <!-- end page 4 night in "event/playlists" -->
-
-    <!-- page 5 create night in -->
-    <!-- <section class=" create-night-in">
-
-      <button id="nightSave">save</button>
-
-      <input id="night-title" type="text" placeholder="create a title"></input>
-
-      <ul class="api-data">
-
-        
-        <div id="map"></div>
-        <div>
-          <input id="address" type="text" placeholder="enter a location">
-          <input id="confirmButton" type="button" value="where are you">
-          <p id="restaurantLocal">
-  <-- outputs go here -->
-          <!-- </p>
-          <input id="foodData" type="text" placeholder="write some restaurants here"> 
-          </div>
-          <div>
-          <input id="movieButton" type="button" value="click for some movies" >
-          <input id="movieData" type ="text" placeholder="write some movies here" >
-          <p id="movieList">
-          outputs go here -->
-                    <!-- </p>
-          </div>   -->
-         
-    
-        <!-- <li>game data steam most popular if we have time</li>
-
-        
-      <button class="btn" id="pickone-return">return to pick one screen</button> -->
-
-     
-
-      
-    <!-- </div>
-    </section> -->
-    <!-- end page 5 create night in -->
-
-    <!-- JavaScript -->
-  <script src="https://maps.googleapis.com/maps/api/js key=AIzaSyDID4ej9YC2P8vUwpG-7MomaiOwMzJq9jk&libraries=places&v=weekly"></script>
-
-  <script src="./assets/scripts/script.js"></script>
-
-  </body>
-
-</html>

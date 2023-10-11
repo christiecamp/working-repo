@@ -1,3 +1,8 @@
+
+
+
+
+
 // biggest container tied to user holds all nights in
 document.getElementById("alsoSneaky").style.display = "none";
 let bigContainer = [];
@@ -98,7 +103,7 @@ const options = {
 
 // movie data function
 function movieApi() {
-  const response = fetch(
+  fetch(
     // set to random 15 from most popular
     "https://moviesdatabase.p.rapidapi.com/titles/random?limit=15&list=most_pop_movies",
 
