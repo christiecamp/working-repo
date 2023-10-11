@@ -9,10 +9,12 @@
     </head>
 
     <body class="bg-neutral">
-     <!-- nav bar -->
+
+     <!-- nav bar with logo -->
       <nav>
           <div class="flex justify-between h-20 px-10 shadow items-center bg-neutral">
             
+            <!-- logo -->
             <div class="flex items-center space-x-8">
             <div>
                 <a
@@ -24,18 +26,16 @@
 
             </div>
 
-              <div class="hidden md:flex justify-around space-x-8">
+              <!-- <div class="hidden md:flex justify-around space-x-8">
                 <a href="#" class="hover:text-yellow text-cyan">CREATE LINEUP</a>
                 <a href="#" class="hover:text-yellow text-cyan">VIEW LINEUPS</a>
-              </div>
-           
-          
-            </div>
+              </div> --> 
       </nav>
 
       <!-- login card -->
       <div class="h-screen flex justify-center">
-        <div class="py-7 px-8 h-80 mt-80 bg-fuchsia rounded shadow-xl sticky">
+        <div class="py-7 px-8 h-80 mt-80 bg-fuchsia rounded shadow-xl">
+
           <form action="">
             <div class="mb-6">
               <label for="name" class="block text-neutral font-bold">Name:</label>
@@ -45,12 +45,10 @@
             <div>
               <label for="password" class="block text-neutral font-bold">Password:</label>
               <input type="text" name="password" id="password" placeholder="password" class="w-full border border-black-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
-
-              <a href="#" class="text-sm font-thin text-gray hover:underline mt-2 inline-block hover:text-cyan">Forgot Password?</a>
             </div>
-
-            <butt class="cursor-pointer py-2 px-4 block mt-6 bg-lime text-gray font-bold w-full text-center rounded">Login</butt>
+            <button class="cursor-pointer py-2 px-4 block mt-6 bg-lime text-gray font-bold w-full text-center rounded">Login</button>
           </form>
+
         </div>
       </div>
 
