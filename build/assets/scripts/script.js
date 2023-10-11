@@ -1,21 +1,14 @@
-
-// const start_btn = document.querySelector(".start_btn button");
-// const details_box = document.querySelector("details_box");
-
-
-// const start_btn = document.querySelector (".start_btn button");
-// const details_box = document.querySelector ("details_box");
-
-// const next_btn = details_box.querySelector (".next_btn button")
-
-const start_btn = document.querySelector(".start_btn button");
-const details_box = document.querySelector("details_box");
-
-
-// const next_btn = details_box.querySelector(".next_btn button");
 // biggest container tied to user holds all nights in
+document.getElementById("alsoSneaky").style.display = "none";
 let bigContainer = [];
-console.log(localStorage.getItem("user"));
+if (localStorage.getItem("user")) {
+  bigContainer = JSON.parse(localStorage.getItem("user"));
+}
+
+let displayEl = document.getElementById("create-night-in");
+displayEl.style.display = "none";
+
+let deleteBtn = document.getElementById("delete-night");
 
 // restaurant stuff
 let restaurantArray = [];
@@ -36,21 +29,61 @@ var titleInput = document.getElementById("night-title");
 
 var nightSaveBtn = document.getElementById("nightSave");
 
+var targetOutput = document.getElementById("target");
+for (i = 0; i < bigContainer.length; i++) {
+  var listEl = document.createElement("li");
+  var titleEl = document.createElement("p");
+  titleEl.textContent = bigContainer[i].title;
+  var resEl = document.createElement("p");
+  resEl.textContent = bigContainer[i].res;
+  var movieEl = document.createElement("p");
+  movieEl.textContent = bigContainer[i].movie;
+  listEl.appendChild(titleEl);
+  listEl.appendChild(resEl);
+  listEl.appendChild(movieEl);
+
+  targetOutput.appendChild(listEl);
+}
+
 // saves the title, movies, restaurant as an array to local
 
 function saveNight() {
-  var dataTransfer = [];
-
-  dataTransfer.push(titleInput.value, movieInput.value, restaurantInput.value);
-  // console.log(titleInput.value);
-  // console.log(movieInput.value);
-  // console.log(restaurantInput.value);
-  bigContainer.push("$  " + dataTransfer + "  $");
+  // var dataTransfer = JSON.parse(localStorage.getItem("user"));
+  var userValue = JSON.parse(localStorage.getItem("user"));
+  console.log("this is user value", userValue);
+  console.log("this is before the if statement", bigContainer);
+  if (userValue !== null) {
+    // bigContainer.push(userValue);
+    bigContainer = userValue;
+  }
+  console.log("this is big container", bigContainer);
+  // dataTransfer.push(titleInput.value, movieInput.value, restaurantInput.value);
+  var inputData = {
+    title: titleInput.value,
+    movie: movieInput.value,
+    res: restaurantInput.value,
+  };
+  bigContainer.push(inputData);
   console.log(bigContainer);
-}
-// local storage save
-function storageSave() {
-  localStorage.setItem("user", bigContainer);
+  // console.log(bigContainer);
+  var bigContainerStorage = JSON.stringify(bigContainer);
+
+  localStorage.setItem("user", bigContainerStorage);
+
+  var listEl = document.createElement("li");
+  var titleEl = document.createElement("p");
+  titleEl.textContent = inputData.title;
+  var resEl = document.createElement("p");
+  resEl.textContent = inputData.res;
+  var movieEl = document.createElement("p");
+  movieEl.textContent = inputData.movie;
+  listEl.appendChild(titleEl);
+  listEl.appendChild(resEl);
+  listEl.appendChild(movieEl);
+
+  targetOutput.appendChild(listEl);
+
+  // (document.getElementById("zero").innerHTML = bigContainer[0].title +  bigContainer[0] + bigContainer.);
 }
 
 // rapidapi request
@@ -68,6 +101,7 @@ function movieApi() {
   const response = fetch(
     // set to random 15 from most popular
     "https://moviesdatabase.p.rapidapi.com/titles/random?limit=15&list=most_pop_movies",
+
     options
   )
     .then(function (response) {
@@ -95,7 +129,6 @@ function getApi(value) {
       initMap(data.results[0].geometry.location);
     });
 }
-
 
 function initMap(latLon) {
   var position = latLon;
@@ -125,25 +158,38 @@ function callback(results, status) {
       // make the array and display it so user can choose.
       restaurantArray.push(results[i].name);
       restaurantDisplay.textContent = restaurantArray;
-      //   localStorage.setItem("restaurants" + i, JSON.stringify(results[i].name));
-      // }
-      // for (var i = 0; i < localStorage.length; i++) {
-      //   var item = [localStorage.getItem("restaurants" + i)];
-      //   restaurantAppend.append(item + ", ");
-      // }
     }
   }
 }
 // save button work
 nightSaveBtn.addEventListener("click", () => {
   saveNight();
-  storageSave();
 });
 
 // movie button works.
 movieButton.addEventListener("click", () => {
+  // backup if movie api server is still down
+  // comment out if server works
+  // movieArray = [
+  //   "National Treasure",
+  //   " National Treasure II",
+  //   " Blade",
+  //   " Blade II",
+  //   " The Barbie Movie",
+  //   " Lilo and Stich",
+  //   " Halloween",
+  //   " Jeepers Creepers",
+  //   " Scream",
+  //   " Mirrors",
+  //   " Click",
+  //   " Tarzan",
+  //   " Limitless",
+  //   " An Extremely Goofy Movie",
+  //   " The Royal Tenenbaums",
+  // ];
   movieArray = [];
   movieApi();
+  movieList.textContent = movieArray;
 });
 // address button works
 addressButton.addEventListener("click", () => {
@@ -151,18 +197,25 @@ addressButton.addEventListener("click", () => {
   getApi(addressBox.value);
 
   // localStorage.clear();
-
-  // for (var i = 0; i < localStorage.length; i++) {
-  //   var item = localStorage.getItem("restaurants" + i);
-  //   restaurantAppend.append(item);
-  // }
-  // for (var i = 0; i < localStorage.length; i++) {
-  //   var item = localStorage.getItem("restaurants" + i);
-  //   restaurantAppend.append(item);
-  // }
+});
+// display night in creator
+document.getElementById("create-btn").addEventListener("click", () => {
+  // display night in creation
+  document.getElementById("create-night-in").style.display = "block";
+});
+// hide night in creator
+document.getElementById("pickone-return").addEventListener("click", () => {
+  // this is where it hides it
+  document.getElementById("create-night-in").style.display = "none";
 });
 
+// delete nights
+deleteBtn.addEventListener("click", () => {
+  localStorage.removeItem("user");
+  location.reload();
+});
 
+// devon code
 var loginForm = document.getElementById("login-form");
 var signupForm = document.getElementById("signup-form");
 var usernameInput = document.querySelector(".username");
@@ -173,61 +226,65 @@ var loginButton = document.querySelector(".login-button");
 var signupButton = document.querySelector(".signup-button");
 var errorText = document.querySelector(".error-text");
 
-
 // Signup logic
-signupForm.addEventListener("submit", e => {
+
+signupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const signupUsername = signupUsernameInput.value;
+  const signupPassword = signupPasswordInput.value;
+
+  // Validation (you can replace this with your own validation logic)
+  if (signupUsername.length < 4) {
+    errorText.textContent = "Username must be at least 4 characters long.";
+    return;
+  }
+
+  if (signupPassword.length < 6) {
+    errorText.textContent = "Password must be at least 6 characters long.";
+    return;
+  }
+
+  // Check if the username already exists in local storage
+  const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+  const userExists = existingUsers.some(
+    (user) => user.username === signupUsername
+  );
+
+  if (userExists) {
+    errorText.textContent =
+      "Username already exists. Please choose a different one.";
+    return;
+  }
+
+  signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const signupUsername = signupUsernameInput.value;
-    const signupPassword = signupPasswordInput.value;
+    var signupUsername = signupUsernameInput.value;
+    var signupPassword = signupPasswordInput.value;
 
     // Validation (you can replace this with your own validation logic)
     if (signupUsername.length < 4) {
-        errorText.textContent = "Username must be at least 4 characters long.";
-        return;
+      errorText.textContent = "Username must be at least 4 characters long.";
+      return;
     }
 
     if (signupPassword.length < 6) {
-        errorText.textContent = "Password must be at least 6 characters long.";
-        return;
+      errorText.textContent = "Password must be at least 6 characters long.";
+      return;
     }
 
-// When the eye icon is clicked to toggle password visibility
-pwShowHide.forEach((eyeIcon) => {
-  eyeIcon.addEventListener("click", () => {
-    let pwFields =
-      eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-
-    pwFields.forEach((password) => {
-      if (password.type === "password") {
-        password.type = "text";
-        eyeIcon.classList.replace("bx-hide", "bx-show");
-      } else {
-        password.type = "password";
-        eyeIcon.classList.replace("bx-show", "bx-hide");
-      }
-    });
-  });
-});
-
-links.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault(); // Preventing form submit
-    form.classList.toggle("show-signup");
-  });
-});
-
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-
     // Check if the username already exists in local storage
-    const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    const userExists = existingUsers.some(user => user.username === signupUsername);
+    var existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    var userExists = existingUsers.some(
+      (user) => user.username === signupUsername
+    );
 
     if (userExists) {
-        errorText.textContent = "Username already exists. Please choose a different one.";
-        return;
+      errorText.textContent =
+        "Username already exists. Please choose a different one.";
+      errorText.style.color = "white";
+      return;
     }
 
     // Create a new user and save it to local storage
@@ -238,38 +295,56 @@ loginForm.addEventListener("submit", (e) => {
     // Clear previous error message, if any
     errorText.textContent = "";
 
+    // Clear previous error message, if any
+    errorText.textContent = "";
+
     // Redirect or notify the user of successful signup
-    window.location.href = "signup-success.html"; 
+    document.getElementById("sneaky").style.display = "none";
+  });
+});
+// Login logic
+loginForm.addEventListener("submit", (e) => {
+  document.getElementById("alsoSneaky").style.display = "block";
+  // Redirect or notify the user of successful signup
+  document.getElementById("sneaky").style.display = "none";
 });
 
-
 // Login logic
-loginForm.addEventListener("submit", e => {
-    e.preventDefault();
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  document.getElementById("alsoSneaky").style.display = "block";
+  document.getElementById("sneaky").style.display = "none";
+  var username = usernameInput.value;
+  var password = passwordInput.value;
 
-    var username = usernameInput.value;
-    var password = passwordInput.value;
+  // Add validation to check if username and password are not empty
+  if (!username || !password) {
+    errorText.textContent = "Username and password are required.";
+    return;
+  }
 
-    // Add validation to check if username and password are not empty
-    if (!username || !password) {
-        errorText.textContent = "Username and password are required.";
-        return;
-    }
+  // Check if the username and password match any user in local storage
+  var existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
 
-    // Check if the username and password match any user in local storage
-    var existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    var user = existingUsers.find(user => user.username === username && user.password === password);
+  var user = existingUsers.find(
+    (user) => user.username === username && user.password === password
+  );
 
-    if (user) {
-        // Clear previous error message, if any
-        errorText.textContent = "";
+  var user = existingUsers.find(
+    (user) => user.username === username && user.password === password
+  );
 
-        // Redirect or notify the user of successful login
-        window.location.href = "login-success.html";
-    } else {
-        // Password is incorrect, display an error message
-        errorText.textContent = "Incorrect username or password. Please try again.";
-    }
+  if (user) {
+    // Clear previous error message, if any
+    errorText.textContent = "";
+
+    // Redirect or notify the user of successful login
+    // window.location.href = "login-success.html";
+  } else {
+    // Password is incorrect, display an error message
+    errorText.textContent = "Incorrect username or password. Please try again.";
+    errorText.style.color = "white";
+  }
 });
 
 signupForm.addEventListener("submit", (e) => {
@@ -284,7 +359,6 @@ signupForm.addEventListener("submit", (e) => {
   // For example, you can save the signup data to local storage for simplicity
   localStorage.setItem("signupUsername", signupUsername);
   localStorage.setItem("signupPassword", signupPassword);
-
+  document.getElementById("sneaky").style.display = "none";
+  document.getElementById("alsoSneaky").style.display = "block";
 });
-
-})
