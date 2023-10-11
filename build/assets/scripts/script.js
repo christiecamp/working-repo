@@ -212,7 +212,10 @@ document.getElementById("pickone-return").addEventListener("click", () => {
 // delete nights
 deleteBtn.addEventListener("click", () => {
   localStorage.removeItem("user");
-  location.reload();
+  // location.reload();
+  while (targetOutput.firstChild) {
+    targetOutput.removeChild(targetOutput.firstChild);
+  }
 });
 
 // devon code
