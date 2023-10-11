@@ -15,9 +15,7 @@ module.exports = {
       'lime': '#a3e635',
     },
     extend: {
-      backgroundImage: {
-        'hero': "url('./build/assets/img/background.png')",
-      },
+      
     },
   },
   plugins: [],

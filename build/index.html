@@ -14,7 +14,7 @@
 
 
   <!-- nav bar with logo -->
-<header class="flex">
+<header class="flex p-200">
   <nav>
     <div class="flex justify-between h-20 px-10 shadow items-center bg-neutral">
       <div class="flex items-center space-x-8">
@@ -37,9 +37,9 @@
   <!-- login card -->
 <main>
   <section class="flex container-forms justify-center align-bottom" id="sneaky">
-    <div class="forms py-7 px-8 h-100 bg-fuchsia rounded shadow-xl forms">
+    <div class="forms py-7 px-8 h-100 bg-fuchsia rounded shadow-xl">
 
-         <!-- login form -->
+          <!-- login form -->
           <form id="login-form">
              <!-- username -->
             <div class="mb-6">
@@ -69,7 +69,7 @@
               <input type="text" name="signup-password" id="signup-password" placeholder="password" class="signup-password w-full border border-black-300 py-2 pl-3 rounded mt-2 outline-none" required>
             </div>
             <!-- signup button -->
-            <button type="submit" class="signup-button cursor-pointer py-2 px-4 block mt-6 bg-yellow text-gray font-bold w-full  border-neutral text-center rounded" data-dropdown-toggle="dropdownId">SIGN-UP</button>
+           <button type="submit" class="signup-button cursor-pointer py-2 px-4 block mt-6 bg-yellow text-gray font-bold w-full  border-neutral text-center rounded" data-dropdown-toggle="dropdownId">SIGN-UP</button>
           </form>
     </div>
     <p class="error-text"></p>
@@ -94,18 +94,80 @@
     <p class="error-text"></p>
      </section> -->
 
-     <!-- background image -->
-     <section>
-     <div class="hero-image" 
+  
+   <!-- background image -->
+  <!-- <div class="hero-image" 
      style="background-image: url('./assets/img/background.png'); height:800px">
-     </div>
-     </section>
+  </div> -->
 
 
-     <!-- <div class="hero-image"
-     style="background-image: url('./assets/img/background.png'); height: 800px">
-    </div> -->
 
+      <!-- container one - create lineup -->
+    <!-- <section class="flex container">
+      <div class="py-7 px-8 h-100 bg-lime rounded shadow-xl forms">
+      </div>
+    </section> -->
+
+    <!-- container two - view lineups -->
+    <!-- <section class="flex container">
+      <div class="py-7 px-8 h-100 bg-yellow rounded shadow-xl forms">
+      </div>
+    </section> -->
+
+
+<div class="flex container justify-center bg-lime">
+     <!-- container one -->
+    <section class="create-and-created" id="alsoSneaky">
+      <div class= "bg-yellow rounded shadow-xl py-7 px-8 h-100 w-screen">
+
+        <button class="btn" id="create-btn">create a night in</button>
+        <button class="btn" id="delete-night">delete nights?</button>
+
+      <h3 class="pick-one">pick one</h3>
+      <ul class="nights-in-list" id="target">
+      </ul>
+    </div>
+    </section>
+    
+    <!-- page 5 create night in -->
+    <section class="flex container" id="create-night-in">
+    
+      <button id="nightSave">save</button>
+    
+      <input id="night-title" type="text" placeholder="create a title"></input>
+    
+      <ul class="api-data">
+    
+        
+        <div id="map"></div>
+        <div>
+          <input id="address" type="text" placeholder="enter a location">
+          <input id="confirmButton" type="button" value="where are you">
+          <p id="restaurantLocal">
+          </p>
+          <input id="foodData" type="text" placeholder="write some restaurants here"> 
+          </div>
+          <div>
+          <input id="movieButton" type="button" value="click for some movies" >
+          <input id="movieData" type ="text" placeholder="write some movies here" >
+          <p id="movieList">
+            <!-- outputs go here -->
+                    </p>
+          </div>  
+        
+        <!--for when we have a games api we can use  -->
+        <!-- <li>game data steam most popular if we have time</li> -->
+    
+        
+      <button class="btn" id="pickone-return">All Done</button>
+    
+    
+      </div>
+    </section>
+  </div>
+  
+  <!-- </div> -->
+    
 
 
 
@@ -123,52 +185,7 @@
 
 <!-- start page 4 night in "events/playlists" -->
 
-<section class="create-and-created" id="alsoSneaky">
-  <button class="btn" id="create-btn">create a night in</button>
-  <button class="btn" id="delete-night">delete nights?</button>
-  <h3 class="pick-one">pick one</h3>
-  <ul class="nights-in-list" id="target">
 
- 
-  </ul>
-</section>
-<!-- end page 4 night in "event/playlists" -->
-
-<!-- page 5 create night in -->
-<section id="create-night-in">
-
-  <button id="nightSave">save</button>
-
-  <input id="night-title" type="text" placeholder="create a title"></input>
-
-  <ul class="api-data">
-
-    
-    <div id="map"></div>
-    <div>
-      <input id="address" type="text" placeholder="enter a location">
-      <input id="confirmButton" type="button" value="where are you">
-      <p id="restaurantLocal">
-      </p>
-      <input id="foodData" type="text" placeholder="write some restaurants here"> 
-      </div>
-      <div>
-      <input id="movieButton" type="button" value="click for some movies" >
-      <input id="movieData" type ="text" placeholder="write some movies here" >
-      <p id="movieList">
-        <!-- outputs go here -->
-                </p>
-      </div>  
-    
-    <!--for when we have a games api we can use  -->
-    <!-- <li>game data steam most popular if we have time</li> -->
-
-    
-  <button class="btn" id="pickone-return">All Done</button>
-
-
-</div>
-</section>
 
 
 
@@ -177,6 +194,8 @@
     <!-- JavaScript -->
   <script src="./assets/scripts/script.js"></script>
 
+  <footer>
+  </footer>
 
   </body>
 
@@ -367,30 +386,6 @@
 </div> -->
 
 
-      <!-- <main>
-      <section id="rockets" class="px-20 mt-20">
-        <h2 class="text-4xl font-bold text-center mb-6 text-cyan">
-            LINE-UP'S
-        </h2>
-
-        <ul class="list-none mx-auto my-12 flex flex-col sm:flex-row items-center gap-8">
-            <li
-                class="flex flex-col items-center border border-solid border-fuchsia bg-gray py-6 px-2 rounded-3xl shadow-xl"> -->
-              <!-- add icon -->
-                <!-- <img src="./img/rocketman.png" alt="Explorer" class="w-1/2 mb-6"> -->
-                <!-- <h3 class="text-3xl text-center text-neutral">Explorer</h3>
-            </li>
-
-            <li
-            class="flex flex-col items-center border border-solid border-fuchsia bg-gray py-6 px-2 rounded-3xl shadow-xl"> -->
-          <!-- add icon -->
-            <!-- <img src="./img/rocketman.png" alt="Explorer" class="w-1/2 mb-6"> -->
-            <!-- <h3 class="text-3xl text-center text-neutral">Explorer</h3>
-          </li>
-        </ul>
-
-    </section>
-    </main> -->
 
 
 
