@@ -79,7 +79,7 @@
     "yaml": "^2.3.2"
   },
   "scripts": {
-    "tailwindcss": "npx tailwindcss -i ./src/input.css -o ./assets/css/output.css --watch"
+    "tailwindc": "npx tailwindcss -i ./src/input.css -o ./assets/css/output.css --watch"
   },
   "keywords": [],
   "author": "",
