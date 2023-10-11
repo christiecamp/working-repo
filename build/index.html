@@ -14,7 +14,7 @@
 
 
   <!-- nav bar with logo -->
-<header>
+<header class="flex">
   <nav>
     <div class="flex justify-between h-20 px-10 shadow items-center bg-neutral">
       <div class="flex items-center space-x-8">
@@ -36,28 +36,47 @@
 
   <!-- login card -->
 <main>
+  <section class="flex container-forms justify-center align-bottom" id="sneaky">
+    <div class="forms py-7 px-8 h-80 bg-fuchsia rounded shadow-xl forms">
 
-  <div class="flex h-screen align-middle justify-center">
-    <div class="py-7 px-8 h-80 bg-fuchsia rounded shadow-xl">
-
-          <form action="" id="">
+         <!-- login form -->
+          <form id="login-form">
+             <!-- username -->
             <div class="mb-6">
-              <label for="name" class="block text-neutral font-bold">Name:</label>
-              <input type="text" name="name" id="users" placeholder="username" class="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
+              <label for="username" class="block text-neutral font-bold">USERNAME</label>
+              <input type="text" name="username" id="username" placeholder="username" class="username w-full border border-neutral py-2 pl-3 rounded mt-2 outline-none" required>
             </div>
-    
+            <!-- password -->
             <div>
-              <label for="password" class="block text-neutral font-bold">Password:</label>
-              <input type="text" name="password" id="password" placeholder="password" class="w-full border border-black-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-yellow :ring-yellow" />
+              <label for="password" class="block text-neutral font-bold">PASSWORD</label>
+              <input type="text" name="password" id="password" placeholder="password" class="password w-full border border-neutral py-2 pl-3 rounded mt-2 outline-none" required>
             </div>
-            <button type="submit" class="cursor-pointer py-2 px-4 block mt-6 bg-lime text-gray font-bold w-full text-center rounded">Login</button>
+                <!-- login button -->
+          <button type="submit" class="login-button cursor-pointer py-2 px-4 block mt-6 bg-lime text-gray font-bold w-full border border-neutral text-center rounded">LOGIN</button>
           </form>
 
-        </div>
-      </div>
+          
+          <!-- signup form -->
+          <form id="signup-form">
+            <!-- signup username -->
+            <div class="mb-6">
+              <label for="signup-username" class="block text-neutral font-bold">CREATE USERNAME</label>
+              <input type="text" name="signup-username" id="signup-username" placeholder="username" class="signup-username w-full border py-2 pl-3 rounded mt-2 outline-none" required>
+            </div>
+            <!-- signup password -->
+            <div>
+              <label for="signup-password" class="block text-neutral font-bold">CREATE PASSWORD</label>
+              <input type="text" name="signup-password" id="signup-password" placeholder="password" class="signup-password w-full border border-black-300 py-2 pl-3 rounded mt-2 outline-none" required>
+            </div>
+            <!-- signup button -->
+            <button type="submit" class="signup-button cursor-pointer py-2 px-4 block mt-6 bg-yellow text-gray font-bold w-full  border-neutral text-center rounded">SIGN-UP</button>
+          </form>
+    </div>
+    <p class="error-text"></p>
+  </section>
 
-
-    <section class="container forms" id="sneaky">
+  <!-- original html as reference prior to tailwindcss implementation -->
+   <!-- <section class="container forms" id="sneaky">
         <div class="forms">
         <form id="signup-form">
             <h2>Signup</h2>
@@ -73,9 +92,9 @@
         </form>
     </div>
     <p class="error-text"></p>
-     </section>
+     </section> -->
 
-  </main>
+
 
 
 
@@ -139,11 +158,12 @@
 
 </div>
 </section>
-
+</main>
 
     <!-- JavaScript -->
 
   <script src="./assets/scripts/script.js"></script>
+
 
   </body>
 
