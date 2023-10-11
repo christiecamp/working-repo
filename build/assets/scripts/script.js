@@ -1,8 +1,6 @@
 
 
 
-
-
 // biggest container tied to user holds all nights in
 document.getElementById("alsoSneaky").style.display = "none";
 let bigContainer = [];
@@ -238,6 +236,11 @@ var errorText = document.querySelector(".error-text");
 
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+loginButton.addEventListener('click', function() {
+  document.getElementsByTagName("main").classList.add("hero-image");
+}
+);
 
   const signupUsername = signupUsernameInput.value;
   const signupPassword = signupPasswordInput.value;

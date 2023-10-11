@@ -14,7 +14,11 @@ module.exports = {
       'yellow': '#fde047',
       'lime': '#a3e635',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero': "url('./build/assets/img/background.png')",
+      },
+    },
   },
   plugins: [],
 }
